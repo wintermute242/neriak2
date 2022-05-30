@@ -4,7 +4,7 @@ import time
 
 program_name = "EverQuest 2"
 
-def enumHandler(hwnd):
+def enumHandler(hwnd, _):
     if program_name in win32gui.GetWindowText(hwnd):
             set_focus(hwnd)
             return
