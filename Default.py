@@ -11,6 +11,8 @@ class Default(Persona):
         self.assist_toggle = False
         self.assist_timer = Timer.Timer()
         self.assist_timer.set_alarm(2)
+        self.zoning_follow_timer = Timer.Timer()
+        self.zoning_follow_timer.set_alarm(6)
         
     
     def load():
