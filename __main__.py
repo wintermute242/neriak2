@@ -12,13 +12,13 @@ persona_name = "Default"
 if args.persona:
     persona_name = args.persona
 
-if not os.path.exists('neriak.ini'):
-    if os.path.exists('example_neriak.ini'):
-        print("No configuration file found. Creating copy from 'example_neriak.ini'")
-        shutil.copyfile('example_neriak.ini','neriak.ini')
-        print("Please setup 'neriak.ini' and run this program again.")
+if not os.path.exists('neriak2.ini'):
+    if os.path.exists('example_neriak2.ini'):
+        print("No configuration file found. Creating copy from 'example_neriak2.ini'")
+        shutil.copyfile('example_neriak2.ini','neriak2.ini')
+        print("Please setup 'neriak2.ini' and run this program again.")
     else:
-        print("No configuration file 'neriak.ini' or example file 'example_neriak.ini' was found.")
+        print("No configuration file 'neriak2.ini' or example file 'example_neriak2.ini' was found.")
         print("Please create these files or download a new copy from the repo.")
     
     sys.exit(1)

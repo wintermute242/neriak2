@@ -6,7 +6,7 @@ class Default(Persona):
 
     # Initialize the superclass
     def __init__(self):
-        super().__init__(__name__, self.log_path, self.key_file)
+        super().__init__(__name__)
         #--> Add setup here like triggers, actions, etc
         self.assist_toggle = False
         self.assist_timer = Timer.Timer()

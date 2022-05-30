@@ -15,7 +15,7 @@ class Persona:
         self.persona_name = name
         # Read in the configuration file
         self.config = configparser.ConfigParser()
-        self.config.read('neriak.ini')
+        self.config.read('neriak2.ini')
         
         # Log setup
         character_name = self.config[name]['character_name'].capitalize()
