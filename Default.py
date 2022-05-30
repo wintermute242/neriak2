@@ -8,7 +8,7 @@ class Default(Persona):
     def __init__(self):
         super().__init__(__name__)
         #--> Add setup here like triggers, actions, etc
-        self.assist_toggle = False
+        self.assist_toggle = True
         self.assist_timer = Timer.Timer()
         self.assist_timer.set_alarm(2)
         self.zoning_follow_timer = Timer.Timer()
