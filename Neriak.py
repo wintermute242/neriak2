@@ -84,8 +84,9 @@ class Persona:
         # Check if this is a command trigger and if so whether
         # it is approved.
         if action.command:
+            print(f"Full string: {data.group(0)}")
             commander_name = data.group(1)
-            print(f"Command issued by {commander_name}... ",end='')
+            print(f"Command issued by '{commander_name}' is ",end='')
             if not commander_name in self.approved_names:
                 print("Denied")
                 return
