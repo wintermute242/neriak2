@@ -18,10 +18,10 @@ class Persona:
         self.config.read('neriak.ini')
         
         # Log setup
-        log_dir = self.config[name]['everquest_log_directory']
         character_name = self.config[name]['character_name'].capitalize()
-        server_name = self.config[name]['server_name'].lower()
-        log_file_name = f"eqlog_{character_name}_{server_name}.txt"
+        server_name = self.config[name]['server_name']
+        log_dir = os.path.join(server_name, self.config[name]['everquest_log_directory'])
+        log_file_name = f"eq2log_{character_name}.txt"
         full_log_path = os.path.join(log_dir, log_file_name)
         self.log_file_path = full_log_path
         
