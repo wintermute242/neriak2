@@ -4,16 +4,13 @@ import time
 
 program_name = "EverQuest 2"
 
-def enumHandler(hwnd, lParam):
+def enumHandler(hwnd):
     if program_name in win32gui.GetWindowText(hwnd):
-        return hwnd
-    else: 
-        return 0
+            set_focus(hwnd)
+            return
 
-def get_focus():
-    for handle in win32gui.EnumWindows(enumHandler, None):
-        if handle != 0:
-            # If the application is minimized, show the window with it's last used placement and dimensions
+def set_focus(handle):
+    # If the application is minimized, show the window with it's last used placement and dimensions
             if win32gui.IsIconic(handle):
                 print("Application is minimized...")
                 win32gui.ShowWindow(handle, 1)
@@ -25,7 +22,9 @@ def get_focus():
                 pass
         
             time.sleep(0.25) # Give the window enough time to get focus or the keystroke will go who knows where
-            break
+
+def get_focus():
+    win32gui.EnumWindows(enumHandler, None)
 
 def pause(seconds):
     """Pauses execution for specified number of seconds. This can be a float for fractions of a second."""
