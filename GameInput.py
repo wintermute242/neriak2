@@ -10,7 +10,7 @@ def enumHandler(hwnd, _) -> bool:
     if program_name in current_title:
             print("Calling set_focus() on handle {hwnd}")
             set_focus(hwnd)
-            return 0
+            return False
     return True
 
 def set_focus(handle) -> None:
@@ -28,7 +28,10 @@ def set_focus(handle) -> None:
             time.sleep(0.25) # Give the window enough time to get focus or the keystroke will go who knows where
 
 def get_focus() -> None:
-    win32gui.EnumWindows(enumHandler, None)
+    try:
+        win32gui.EnumWindows(enumHandler, None)
+    except:
+        pass
 
 def pause(seconds) -> None:
     """Pauses execution for specified number of seconds. This can be a float for fractions of a second."""
