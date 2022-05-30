@@ -2,7 +2,7 @@ import win32gui
 import pydirectinput
 import time
 
-program_name = "EverQuest 2"
+program_name = "EverQuest II"
 
 def enumHandler(hwnd, _):
     current_title = win32gui.GetWindowText(hwnd)
