@@ -33,7 +33,7 @@ class Persona:
         self.actions = []
         self.approved_names = self.config[name]['accept_commands_from'].split(',')
         self.simple_trigger = self.config[name]['press_key_trigger']
-        regex = f":(\w+)\\\/a tells you, \"{self.simple_trigger} (.*)\"$"
+        regex = f":(\w+)\/a tells you, \"{self.simple_trigger} (.*)\"$"
         self.add_trigger(Trigger("simple",regex))
         self.add_action(Action("simple", self.run_simple_action, True))
 
