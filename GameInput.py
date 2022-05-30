@@ -5,7 +5,10 @@ import time
 program_name = "EverQuest 2"
 
 def enumHandler(hwnd, _):
-    if program_name in win32gui.GetWindowText(hwnd):
+    current_title = win32gui.GetWindowText(hwnd)
+    print(f"Found window: {current_title}")
+    if program_name in current_title:
+            print("Calling set_focus() on handle {hwnd}")
             set_focus(hwnd)
             return
 
