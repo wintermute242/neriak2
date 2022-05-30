@@ -73,7 +73,7 @@ class LogReader:
                         timer.start()
                     
                     else:
-                        print(f"Matched: {trigger.name}")
+                        print(f"Matched trigger '{trigger.name}': {line}")
                         #print(f"Matched line: [{match.group(0)}]")
                         self.queue.put(Neriak.Event(trigger.name, match))
 
