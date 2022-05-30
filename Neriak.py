@@ -20,7 +20,7 @@ class Persona:
         # Log setup
         character_name = self.config[name]['character_name'].capitalize()
         server_name = self.config[name]['server_name']
-        log_dir = os.path.join(server_name, self.config[name]['everquest_log_directory'])
+        log_dir = os.path.join(self.config[name]['everquest_log_directory'], server_name)
         log_file_name = f"eq2log_{character_name}.txt"
         full_log_path = os.path.join(log_dir, log_file_name)
         self.log_file_path = full_log_path
