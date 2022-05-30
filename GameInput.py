@@ -3,12 +3,17 @@ import pydirectinput
 import time
 
 program_name = "EverQuest II"
+DEBUG: False
+
+def debug_message(string):
+    if DEBUG:
+        print(string)
 
 def enumHandler(hwnd, _) -> bool:
     current_title = win32gui.GetWindowText(hwnd)
-    print(f"Found window: {current_title}")
+    debug_message(f"Found window: {current_title}")
     if program_name in current_title:
-            print("Calling set_focus() on handle {hwnd}")
+            debug_message("Calling set_focus() on handle {hwnd}")
             set_focus(hwnd)
             return False
     return True
@@ -16,10 +21,10 @@ def enumHandler(hwnd, _) -> bool:
 def set_focus(handle) -> None:
     # If the application is minimized, show the window with it's last used placement and dimensions
             if win32gui.IsIconic(handle):
-                print("Application is minimized...")
+                debug_message("Application is minimized...")
                 win32gui.ShowWindow(handle, 1)
 
-            print(f"Activating window '{program_name}'...")
+            debug_message(f"Activating window '{program_name}'...")
             try:
                 win32gui.SetForegroundWindow(handle)
             except:
@@ -51,7 +56,7 @@ def send(key_value) -> None:
 
 def send_key(key_name) -> None:
     pydirectinput.FAILSAFE = False
-    print("send_key")
+    debug_message("send_key")
     # DirectInput Key Codes 
     # at https://github.com/learncodebygaming/pydirectinput/blob/master/pydirectinput/__init__.py
     get_focus()
@@ -66,7 +71,7 @@ def send_keys(keys) -> None:
 
 def send_key_combination(keys) -> None:
     pydirectinput.FAILSAFE = False
-    print(f"send_key_combination {keys}")
+    debug_message(f"send_key_combination {keys}")
     get_focus()
     for key in keys:
         pydirectinput.keyDown(key)
