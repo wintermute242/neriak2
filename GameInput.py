@@ -10,7 +10,7 @@ def enumHandler(hwnd, _) -> bool:
     if program_name in current_title:
             print("Calling set_focus() on handle {hwnd}")
             set_focus(hwnd)
-            #return False
+            return 0
     return True
 
 def set_focus(handle) -> None:
