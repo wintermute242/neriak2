@@ -49,7 +49,7 @@ class Persona:
         """
         Executes a simple action.
         """
-        key_press = data.group(1)
+        key_press = data.group(2)
         GameInput.send(key_press)
         print(f"Pressed key '{key_press}'")
 
@@ -85,7 +85,6 @@ class Persona:
         # Check if this is a command trigger and if so whether
         # it is approved.
         if action.command:
-            print(f"Full string: {data.group(0)}")
             commander_name = data.group(1)
             print(f"Command issued by '{commander_name}' is ",end='')
             if not commander_name in self.approved_names:
